@@ -27,7 +27,11 @@ class MyImages:
         self.batch_size = batch_size
         
     def readims(self,path):
-        c = skimage.io.ImageCollection(glob(path))
+        # Natural sort
+        path = glob(path)
+        path = sorted(path, key=lambda name: int(name[19+8:-4]))
+        
+        c = skimage.io.ImageCollection(path)
         all_images = c.concatenate()
         
         if all_images.ndim == 3:

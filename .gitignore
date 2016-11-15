@@ -4,3 +4,7 @@
 *.gz
 
 *.png
+
+*.pyc
+
+*.jpg
